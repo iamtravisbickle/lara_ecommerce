@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -20,5 +21,5 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::resource('category', CategoryController::class);
-    // Route::resource('product', ProductController::class);
+    Route::resource('product', ProductController::class);
 });

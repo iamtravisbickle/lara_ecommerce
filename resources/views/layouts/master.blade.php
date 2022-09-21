@@ -18,17 +18,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('category.index')}}">Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('product.index')}}">Product</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Order</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('category.index')}}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('product.index')}}">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/logout')}}">Logout</a>
+                    </li>
+                </ul> 
             </div>
         </div>
     </nav>

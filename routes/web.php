@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -19,7 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['AdminAuth']], function() {
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
 });
+
+Route::get('/admin/login', [AuthController::class, 'login']);
+Route::post('/admin/login', [AuthController::class, 'authenticate']);
+Route::get('/admin/logout', [AuthController::class, 'logout']);

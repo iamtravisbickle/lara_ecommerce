@@ -52,10 +52,10 @@
                           src="{{asset('images/'.$product->image)}}"
                           alt=""
                           width="150px"
-                          height="280px"
+                          height="300px"
                         />
                         <div class="p_icon">
-                          <a href="#">
+                          <a href="{{url('product_detail', $product->id)}}">
                             <i class="ti-eye"></i>
                           </a>
                           <a href="#">

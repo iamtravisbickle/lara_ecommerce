@@ -23,8 +23,9 @@ class CustomerController extends Controller
 
     public function product_detail($id)
     {
-        $product = Product::where('id', $id)->get();
-        return view('product_detail', compact('product'));
+        $product = Product::find($id);
+        $category = Category::find($product->category_id);
+        return view('product_detail', compact('category', 'product'));
     }
 
     public function cart()

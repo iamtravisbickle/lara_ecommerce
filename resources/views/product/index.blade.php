@@ -37,7 +37,7 @@
                             </td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->price}}</td>
-                            <td>{{$product->description}}</td>
+                            <td>{{substr($product->description, 0, 60)}}</td>
                             <td>
                                 <a href="{{route('product.edit', $product->id)}}" class="btn btn-success btn-sm">Edit</a>
                                 <form action="{{route('product.destroy', $product->id)}}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this?')">

@@ -29,17 +29,17 @@
         <div class="row s_product_inner">
           <div class="col-lg-6">
             <div class="s_product_img">
-              <img class="img-fluid w-100" src="/img/product/single-product/s-product-1.jpg" alt="" />
+              <img class="img-fluid w-100" src="{{asset('images/'. $product->image)}}" alt="" />
             </div>
           </div>
           <div class="col-lg-5 offset-lg-1">
             <div class="s_product_text">
-              <h3>Faded SkyBlu Denim Jeans</h3>
-              <h2>$149.99</h2>
+              <h3>{{$product->name}}</h3>
+              <h2>{{$product->price}}</h2>
               <ul class="list">
                 <li>
                   <a class="active" href="#">
-                    <span>Category</span> : Household</a
+                    <span>Category</span> : {{$category->name}}</a
                   >
                 </li>
                 <li>
@@ -47,10 +47,7 @@
                 </li>
               </ul>
               <p>
-                Mill Oil is an innovative oil filled radiator with the most
-                modern technology. If you are looking for something that can
-                make your interior look awesome, and at the same time give you
-                the pleasant warm feeling during the winter.
+                {{$product->description}}
               </p>
               <div class="product_count">
                 <label for="qty">Quantity:</label>

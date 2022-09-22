@@ -28,6 +28,13 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3">
+                        <label for="" class="form-lable mb-3">Enter Quantity</label>
+                        <input type="number" class="form-control" name="quantity" id="">
+                        @error('quantity')
+                            <p class="text-danger fs-6">{{$message}}</p>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
                         <label for="" class="form-lable mb-3">Enter Price</label>
                         <input type="number" class="form-control" name="price" id="">
                         @error('price')

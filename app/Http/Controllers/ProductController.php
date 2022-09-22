@@ -42,6 +42,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'category_id' => 'required',
+            'quantity' => 'required',
             'price' => 'required',
             'image' => 'required|mimes:png,jpg,webp',
             'description' => 'required'
@@ -57,6 +58,7 @@ class ProductController extends Controller
         Product::create([
             'name' => $request->name,
             'category_id' => $request->category_id,
+            'quantity' => $request->quantity,
             'price' => $request->price,
             'image' => $file_name,
             'description' => $request->description
@@ -102,6 +104,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'category_id' => 'required',
+            'quantity' => 'required',
             'price' => 'required',
             'description' => 'required'
         ]);
@@ -116,6 +119,7 @@ class ProductController extends Controller
             Product::where('id', $id)->update([
                 'name' => $request->name,
                 'category_id' => $request->category_id,
+                'quantity' => $request->quantity,
                 'price' => $request->price,
                 'image' => $file_name,
                 'description' => $request->description
@@ -125,6 +129,7 @@ class ProductController extends Controller
         Product::where('id', $id)->update([
             'name' => $request->name,
             'category_id' => $request->category_id,
+            'quantity' => $request->quantity,
             'price' => $request->price,
             'description' => $request->description
         ]);

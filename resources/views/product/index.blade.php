@@ -25,6 +25,7 @@
                     <thead>
                         <th>Image</th>
                         <th>Name</th>
+                        <th>Quantity</th>
                         <th>Price</th>
                         <th>Description</th>
                         <th>Action</th>
@@ -36,6 +37,7 @@
                                 <img src="{{asset('images/'.$product->image)}}" width="80px" class="img-thumbnail" alt="">
                             </td>
                             <td>{{$product->name}}</td>
+                            <td>{{$product->quantity}}</td>
                             <td>{{$product->price}}</td>
                             <td>{{substr($product->description, 0, 60)}}</td>
                             <td>

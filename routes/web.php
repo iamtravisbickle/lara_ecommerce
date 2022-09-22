@@ -29,6 +29,6 @@ Route::get('/admin/logout', [AuthController::class, 'logout']);
 Route::get('/', [CustomerController::class, 'index']);
 Route::get('/category', [CustomerController::class, 'category']);
 Route::get('/product_detail/{product_detail}', [CustomerController::class, 'product_detail']);
-Route::get('/cart', [CustomerController::class, 'cart']);
+Route::post('/cart/{cart}', [CustomerController::class, 'cart']);
 Route::get('/checkout', [CustomerController::class, 'checkout']);
 Route::get('/contact', [CustomerController::class, 'contact']);

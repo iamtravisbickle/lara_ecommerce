@@ -28,9 +28,11 @@ class CustomerController extends Controller
         return view('product_detail', compact('category', 'product'));
     }
 
-    public function cart()
+    public function cart($id)
     {
-        return view('cart');
+        $qty = $_POST['qty'];
+        $product = Product::find($id);
+        return view('cart', compact('qty', 'product'));
     }
 
     public function checkout()

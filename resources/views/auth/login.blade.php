@@ -32,10 +32,7 @@
                         <label for="" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary me-1" value="Login">
-                        <a href="">Register</a>
-                    </div>
+                    <input type="submit" class="btn btn-primary me-1" value="Login">
                 </form>
             </div>
         </div>

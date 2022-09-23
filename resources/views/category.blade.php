@@ -1,7 +1,12 @@
 @extends('layouts.customer')
 
 @section('content')
-
+    @if (session()->has('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('message') }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <!--================Home Banner Area =================-->
     <section class="banner_area">
       <div class="banner_inner d-flex align-items-center">
@@ -26,21 +31,6 @@
       <div class="container">
         <div class="row flex-row-reverse">
           <div class="col-lg-9">
-            <div class="product_top_bar">
-              <div class="left_dorp">
-                <select class="sorting">
-                  <option value="1">Default sorting</option>
-                  <option value="2">Default sorting 01</option>
-                  <option value="4">Default sorting 02</option>
-                </select>
-                <select class="show">
-                  <option value="1">Show 12</option>
-                  <option value="2">Show 14</option>
-                  <option value="4">Show 16</option>
-                </select>
-              </div>
-            </div>
-            
             <div class="latest_product_inner">
               <div class="row">
                 @foreach ($products as $product)
@@ -52,7 +42,7 @@
                           src="{{asset('images/'.$product->image)}}"
                           alt=""
                           width="150px"
-                          height="300px"
+                          height="280px"
                         />
                         <div class="p_icon">
                           <a href="{{url('product_detail', $product->id)}}">
@@ -94,9 +84,9 @@
                 </div>
                 <div class="widgets_inner">
                   <ul class="list">
-                    @foreach ($categoires as $category)
+                    @foreach ($categories as $category)
                       <li>
-                        <a href="#">{{$category->name}}</a>
+                        <a href="/category?categoryId={{$category->id}}">{{$category->name}}</a>
                       </li>
                     @endforeach
                   </ul>

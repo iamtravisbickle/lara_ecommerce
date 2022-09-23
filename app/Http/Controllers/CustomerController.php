@@ -15,10 +15,13 @@ class CustomerController extends Controller
     }
 
     public function category()
-    {
-        $categoires = Category::all();
-        $products = Product::orderBy('id', 'desc')->paginate('6');
-        return view('category', compact('categoires', 'products'));
+    {   
+        $categoryId = request('categoryId');
+        $categories = Category::all();
+        $products = Product::where('category_id', 'like', "%$categoryId%")
+                    ->latest()
+                    ->paginate('6');
+        return view('category', compact('categories', 'products'));
     }
 
     public function product_detail($id)
@@ -33,6 +36,17 @@ class CustomerController extends Controller
         $qty = $_POST['qty'];
         $product = Product::find($id);
         return view('cart', compact('qty', 'product'));
+
+        // if($qty > $product->quantity ) {
+        //     return redirect()->back()->with('message', 'Not enough stock');
+        // }else {
+        //     if(isset($_SESSION['cart']['id'.$id])) {
+        //         $_SESSION['cart']['id'.$id] += $qty;
+        //     }else {
+        //         $_SESSION['cart']['id'.$id] = $qty;
+        //     }
+        // }
+    
     }
 
     public function checkout()

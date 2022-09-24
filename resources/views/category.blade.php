@@ -31,6 +31,15 @@
       <div class="container">
         <div class="row flex-row-reverse">
           <div class="col-lg-9">
+            <div class="product_top_bar">
+              <nav class="navbar navbar-light bg-light">
+                <form class="form-inline" action="">
+                  <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+              </nav>
+            </div>  
+
             <div class="latest_product_inner">
               <div class="row">
                 @foreach ($products as $product)
@@ -42,7 +51,7 @@
                           src="{{asset('images/'.$product->image)}}"
                           alt=""
                           width="150px"
-                          height="280px"
+                          height="250px"
                         />
                         <div class="p_icon">
                           <a href="{{url('product_detail', $product->id)}}">

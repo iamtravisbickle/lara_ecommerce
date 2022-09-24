@@ -18,9 +18,22 @@ class CustomerController extends Controller
     {   
         $categoryId = request('categoryId');
         $categories = Category::all();
+
+        if(request('search')) {
+            $searchValue = request('search');
+            $products = Product::where('name', 'like', "%$searchValue%")
+                    ->orWhere('description', 'like', "%$searchValue%")
+                    ->orWhere('price', 'like', "%$searchValue%")
+                    ->latest()
+                    ->paginate('6');
+
+            return view('category', compact('categories', 'products'));
+        }
+
         $products = Product::where('category_id', 'like', "%$categoryId%")
                     ->latest()
                     ->paginate('6');
+
         return view('category', compact('categories', 'products'));
     }
 

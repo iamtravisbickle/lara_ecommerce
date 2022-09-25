@@ -58,9 +58,6 @@
                       <li class="nav-item">
                         <a class="nav-link" href="{{url('/checkout')}}">Product Checkout</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{url('/cart')}}">Shopping Cart</a>
-                      </li>
                     </ul>
                   </li>
 
@@ -74,8 +71,8 @@
                 <ul class="nav navbar-nav navbar-right right_nav pull-right">
                   
                   <li class="nav-item">
-                    <a href="#" class="icons">
-                      <i class="ti-shopping-cart"></i>
+                    <a href="{{url('/cart')}}" class="icons">
+                      <i class="ti-shopping-cart"></i> <sup>{{ Cart::content()->count() }}</sup>
                     </a>
                   </li>
 

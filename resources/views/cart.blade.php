@@ -38,32 +38,34 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($cart as $item)
                 <tr>
                   <td>
                     <div class="media">
-                      <div class="d-flex">
+                      {{-- <div class="d-flex">
                         <img
-                          src="{{asset('/images/'. $product->image)}}"
+                          src=""
                           alt=""
                           width="100px"
                           height="120px"
                         />
-                      </div>
+                      </div> --}}
                       <div class="media-body">
-                        <p>{{$product->name}}</p>
+                        <p>{{$item->name}}</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <h5>{{$product->price}}</h5>
+                    <h5>{{$item->price}}</h5>
                   </td>
                   <td>
-                    <h5>{{$qty}}</h5>
+                    <h5>{{$item->qty}}</h5>
                   </td>
                   <td>
-                    <h5>{{$product->price * $qty}}</h5>
+                    <h5>{{$item->price * $item->qty}}</h5>
                   </td>
                 </tr>
+                @endforeach
 
                 <tr class="bottom_button">
                   <td>

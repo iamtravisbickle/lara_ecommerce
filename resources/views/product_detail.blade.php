@@ -4,9 +4,11 @@
     @if (session()->has('message'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>{{ session('message') }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     </div>
     @endif
+
+
     <!--================Home Banner Area =================-->
     <section class="banner_area">
       <div class="banner_inner d-flex align-items-center">
@@ -54,9 +56,9 @@
               <p>
                 {{$product->description}}
               </p>
-              <form action="{{url('cart', $product->id)}}" method="POST" class="d-inline">
+              <form action="{{url('addToCart')}}" method="POST" class="d-inline">
                 @csrf
-
+                <input type="hidden" name="product_id" value="{{$product->id}}">
                 <div class="product_count">
                   <label for="qty">Quantity:</label>
                   <input

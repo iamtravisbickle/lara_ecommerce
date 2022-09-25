@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class CustomerController extends Controller
 {
@@ -42,24 +43,6 @@ class CustomerController extends Controller
         $product = Product::find($id);
         $category = Category::find($product->category_id);
         return view('product_detail', compact('category', 'product'));
-    }
-
-    public function cart($id)
-    {
-        $qty = $_POST['qty'];
-        $product = Product::find($id);
-        return view('cart', compact('qty', 'product'));
-
-        // if($qty > $product->quantity ) {
-        //     return redirect()->back()->with('message', 'Not enough stock');
-        // }else {
-        //     if(isset($_SESSION['cart']['id'.$id])) {
-        //         $_SESSION['cart']['id'.$id] += $qty;
-        //     }else {
-        //         $_SESSION['cart']['id'.$id] = $qty;
-        //     }
-        // }
-    
     }
 
     public function checkout()

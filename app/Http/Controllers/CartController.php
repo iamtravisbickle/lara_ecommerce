@@ -28,13 +28,15 @@ class CartController extends Controller
         return view('cart', compact('products', 'cart'));
     }
 
-    public function updateCart()
+    public function clearCart($id)
     {
-
+        Cart::remove($id);
+        return redirect()->back()->with('message', 'Item removed');
     }
 
     public function deleteCart()
     {
-
+        Cart::destroy();
+        return redirect()->back()->with('message', 'Successfully cleared your cart');
     }
 }

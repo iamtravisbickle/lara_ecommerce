@@ -30,7 +30,13 @@ Route::get('/admin/logout', [AuthController::class, 'logout']);
 Route::get('/', [CustomerController::class, 'index']);
 Route::get('/category', [CustomerController::class, 'category']);
 Route::get('/product_detail/{product_detail}', [CustomerController::class, 'product_detail']);
+
+// Cart Route
 Route::post('/addToCart', [CartController::class, 'addToCart']);
 Route::get('/cart', [CartController::class, 'cart']);
+Route::get('/clearCart/{item_id}', [CartController::class, 'clearCart']);
+Route::get('/deleteCart', [CartController::class, 'deleteCart']);
+
+
 Route::get('/checkout', [CustomerController::class, 'checkout']);
 Route::get('/contact', [CustomerController::class, 'contact']);

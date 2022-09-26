@@ -57,12 +57,6 @@
                           <a href="{{url('product_detail', $product->id)}}">
                             <i class="ti-eye"></i>
                           </a>
-                          <a href="#">
-                            <i class="ti-heart"></i>
-                          </a>
-                          <a href="#">
-                            <i class="ti-shopping-cart"></i>
-                          </a>
                         </div>
                       </div>
                       <div class="product-btm">

@@ -2,12 +2,11 @@
 
 @section('content')
     @if (session()->has('message'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
         <strong>{{ session('message') }}</strong>
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     </div>
     @endif
-
 
     <!--================Home Banner Area =================-->
     <section class="banner_area">

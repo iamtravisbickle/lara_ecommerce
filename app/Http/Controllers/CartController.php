@@ -11,21 +11,24 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $product = Product::findOrFail($request->input('product_id'));
-        Cart::add(
-            $product->id,
-            $product->name,
-            $request->input('qty'),
-            $product->price,
-        );
 
-        return redirect()->back()->with('message', 'Successfully added!');
+        if($request->input('qty') > $product->quantity) {
+            return redirect()->back()->with('message', 'Not enough stock');
+        }else {
+            Cart::add(
+                $product->id,
+                $product->name,
+                $request->input('qty'),
+                $product->price,
+            );
+        }
+        return redirect('/category')->with('message', 'Successfully added!');
     }
 
     public function cart()
     {
         $cart = Cart::content();
-        $products = Product::all();
-        return view('cart', compact('products', 'cart'));
+        return view('cart', compact('cart'));
     }
 
     public function clearCart($id)

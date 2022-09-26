@@ -23,20 +23,31 @@ Route::group(['prefix' => 'admin', 'middleware' => ['AdminAuth']], function() {
     Route::resource('product', ProductController::class);
 });
 
+// Admin Login
 Route::get('/admin/login', [AuthController::class, 'login']);
 Route::post('/admin/login', [AuthController::class, 'authenticate']);
 Route::get('/admin/logout', [AuthController::class, 'logout']);
 
-Route::get('/', [CustomerController::class, 'index']);
-Route::get('/category', [CustomerController::class, 'category']);
-Route::get('/product_detail/{product_detail}', [CustomerController::class, 'product_detail']);
-
-// Cart Route
-Route::post('/addToCart', [CartController::class, 'addToCart']);
-Route::get('/cart', [CartController::class, 'cart']);
-Route::get('/clearCart/{item_id}', [CartController::class, 'clearCart']);
-Route::get('/deleteCart', [CartController::class, 'deleteCart']);
+// User Auth
+Route::get('/register', [CustomerController::class, 'register']);
+Route::post('/create', [CustomerController::class, 'create']);
+Route::get('/login', [CustomerController::class, 'login']);
+Route::post('/authenticate', [CustomerController::class, 'authenticate']);
+Route::get('/logout', [CustomerController::class, 'logout']);
 
 
-Route::get('/checkout', [CustomerController::class, 'checkout']);
-Route::get('/contact', [CustomerController::class, 'contact']);
+    Route::get('/', [CustomerController::class, 'index']);
+    Route::get('/category', [CustomerController::class, 'category']);
+    Route::get('/product_detail/{product_detail}', [CustomerController::class, 'product_detail']);
+    Route::get('/checkout', [CustomerController::class, 'checkout']);
+    Route::get('/confirm', [CustomerController::class, 'confirm']);
+    Route::get('/contact', [CustomerController::class, 'contact']);
+    
+    // Cart Route
+    Route::post('/addToCart', [CartController::class, 'addToCart']);
+    Route::get('/cart', [CartController::class, 'cart']);
+    Route::get('/clearCart/{item_id}', [CartController::class, 'clearCart']);
+    Route::get('/deleteCart', [CartController::class, 'deleteCart']);
+
+
+

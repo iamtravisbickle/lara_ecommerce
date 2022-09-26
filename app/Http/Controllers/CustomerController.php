@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CustomerController extends Controller
 {
@@ -47,11 +52,74 @@ class CustomerController extends Controller
 
     public function checkout()
     {
-        return view('checkout');
+        $cart = Cart::content();
+        return view('checkout', compact('cart'));
+    }
+
+    public function confirm()
+    {
+        return Cart::content();
+        
+
+        // Cart::destroy();
+        return view('confirm');
     }
 
     public function contact()
     {
         return view('contact');
+    }
+
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function create(Request $request)
+    {
+        // dd(Hash::make($request->password));
+        $request->validate([
+            'name' => ['required', 'min:3'],
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'phone' => 'required',
+            'address' => 'required',
+            'password' => 'required|min:6'
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'address' => $request->address 
+        ]);
+        return redirect('/login')->with('message', 'Account created successfully');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message', 'You are now logged in');
+        }
+        
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login')->with('message', 'You are now logged out');
     }
 }

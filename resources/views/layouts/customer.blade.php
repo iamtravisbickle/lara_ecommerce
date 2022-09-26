@@ -75,12 +75,23 @@
                       <i class="ti-shopping-cart"></i> <sup>{{ Cart::content()->count() }}</sup>
                     </a>
                   </li>
-
-                  <li class="nav-item">
-                    <a href="#" class="icons">
-                      <i class="ti-user" aria-hidden="true"></i>
-                    </a>
-                  </li>
+                  
+                  @auth
+                    <li class="nav-item">
+                      <span class="icons">{{auth()->user()->name}}</span>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{url('logout')}}" class="icons">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  @else
+                    <li class="nav-item">
+                      <a href="{{url('/login')}}" class="icons">
+                        <i class="ti-user" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  @endauth
                 </ul>
               </div>
             </div>
@@ -90,7 +101,12 @@
     </div>
   </header>
   <!--================Header Menu Area =================-->
-
+  @if (session()->has('message'))
+  <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+      <strong>{{ session('message') }}</strong>
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  </div>
+  @endif
   @yield('content')
 
   <!--================ start footer Area  =================-->

@@ -1,12 +1,6 @@
 @extends('layouts.customer')
 
 @section('content')
-    @if (session()->has('message'))
-    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-        <strong>{{ session('message') }}</strong>
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    </div>
-    @endif
 
     <!--================Home Banner Area =================-->
     <section class="banner_area">
@@ -45,18 +39,16 @@
                 </tr>
               </thead>
               <tbody>
+                @php
+                    $total = 0;
+                @endphp
                 @foreach ($cart as $item)
+                @php
+                    $total += $item->subtotal
+                @endphp
                 <tr>
                   <td>
                     <div class="media">
-                      {{-- <div class="d-flex">
-                        <img
-                          src=""
-                          alt=""
-                          width="100px"
-                          height="120px"
-                        />
-                      </div> --}}
                       <div class="media-body">
                         <p>{{$item->name}}</p>
                       </div>
@@ -69,14 +61,10 @@
                     <h5>{{$item->qty}}</h5>
                   </td>
                   <td>
-                    <h5>{{$item->price * $item->qty}}</h5>
+                    <h5>{{$item->subtotal}}</h5>
                   </td>
                   <td>
                     <a href="{{url('/clearCart', $item->rowId)}}">Clear</a>
-                    {{-- <form action="" method="post">
-                      @csrf
-                      <button class="btn btn-sm btn-success" type="submit">Clear</button>
-                    </form> --}}
                   </td>
                 </tr>
                 @endforeach
@@ -88,6 +76,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -96,11 +85,13 @@
                     <h5>Subtotal</h5>
                   </td>
                   <td>
-                    <h5>$2160.00</h5>
+                    <h5>{{$total}}</h5>
                   </td>
+                  <td></td>
                 </tr>
                 
                 <tr class="out_button_area">
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>

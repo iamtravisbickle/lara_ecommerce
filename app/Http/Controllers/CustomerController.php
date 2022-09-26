@@ -72,6 +72,9 @@ class CustomerController extends Controller
 
     public function register()
     {
+        if(auth()->user()) {
+            return redirect('/');
+        }
         return view('register');
     }
 
@@ -98,6 +101,9 @@ class CustomerController extends Controller
 
     public function login()
     {
+        if(auth()->user()) {
+            return redirect('/');
+        }
         return view('login');
     }
 

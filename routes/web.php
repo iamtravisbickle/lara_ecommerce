@@ -35,8 +35,9 @@ Route::get('/login', [CustomerController::class, 'login']);
 Route::post('/authenticate', [CustomerController::class, 'authenticate']);
 Route::get('/logout', [CustomerController::class, 'logout']);
 
+Route::get('/', [CustomerController::class, 'index']);
 
-    Route::get('/', [CustomerController::class, 'index']);
+Route::group(['middleware' => ['UserAuth']], function() {
     Route::get('/category', [CustomerController::class, 'category']);
     Route::get('/product_detail/{product_detail}', [CustomerController::class, 'product_detail']);
     Route::get('/checkout', [CustomerController::class, 'checkout']);
@@ -48,6 +49,7 @@ Route::get('/logout', [CustomerController::class, 'logout']);
     Route::get('/cart', [CartController::class, 'cart']);
     Route::get('/clearCart/{item_id}', [CartController::class, 'clearCart']);
     Route::get('/deleteCart', [CartController::class, 'deleteCart']);
+});
 
 
 

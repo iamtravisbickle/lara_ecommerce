@@ -15,11 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->string('quantity');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('total_price');
             $table->timestamps();
         });

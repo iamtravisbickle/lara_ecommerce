@@ -17,16 +17,15 @@ use App\Http\Controllers\CustomerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Admin Login
+Route::get('/admin/login', [AuthController::class, 'login']);
+Route::post('/admin/login', [AuthController::class, 'authenticate']);
+Route::get('/admin/logout', [AuthController::class, 'logout']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['AdminAuth']], function() {
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
 });
-
-// Admin Login
-Route::get('/admin/login', [AuthController::class, 'login']);
-Route::post('/admin/login', [AuthController::class, 'authenticate']);
-Route::get('/admin/logout', [AuthController::class, 'logout']);
 
 // User Auth
 Route::get('/register', [CustomerController::class, 'register']);

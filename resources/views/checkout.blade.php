@@ -62,7 +62,7 @@
                   </li>
                 </ul>
 
-                <a class="main_btn mt-5" href="{{url('/confirm')}}">Proceed Your Order</a>
+                <a class="main_btn mt-5" href="{{url('/confirm')}}">Submit Your Order</a>
               </div>
             </div>
           </div>

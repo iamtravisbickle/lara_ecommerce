@@ -26,7 +26,7 @@
                         <a class="nav-link" href="{{route('product.index')}}">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Order</a>
+                        <a class="nav-link" href="{{url('/admin/order')}}">Order</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin/logout')}}">Logout</a>

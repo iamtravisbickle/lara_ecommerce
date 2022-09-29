@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::get('/admin/logout', [AuthController::class, 'logout']);
 Route::group(['prefix' => 'admin', 'middleware' => ['AdminAuth']], function() {
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+    Route::get('order', [OrderController::class, 'index']);
+    Route::get('order_detail/{id}', [OrderController::class, 'order_detail']);
 });
 
 // User Auth

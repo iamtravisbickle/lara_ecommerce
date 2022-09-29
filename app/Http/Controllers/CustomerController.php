@@ -98,9 +98,8 @@ class CustomerController extends Controller
                     'product_id' => $productId[$i],
                     'quantity' => $quantity[$i]
                 ]);
-
-            //    Product::find('id', $productId[$i])
-            //             ->decrement('quantity', $quantity[$i]);
+                Product::find($productId[$i])
+                    ->decrement('quantity', $quantity[$i]);
             }
         }
 

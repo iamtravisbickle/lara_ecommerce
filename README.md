@@ -3,7 +3,7 @@
 ### Description
 
 
-Blockquote There are still many aspects to improve to be like a real world e-commerce system but I added overall features and built a prototype.
+<blockquote>There are still many aspects to improve to be like a real world e-commerce system but I added overall features and built a prototype.</blockquote>
 
 
 

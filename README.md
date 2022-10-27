@@ -2,9 +2,9 @@
 
 ### Description
 
-~~~
-There are still many aspects to improve to be like a real world e-commerce system but I added overall features and built a prototype.
-~~~
+
+Blockquote There are still many aspects to improve to be like a real world e-commerce system but I added overall features and built a prototype.
+
 
 
 ### User Panel

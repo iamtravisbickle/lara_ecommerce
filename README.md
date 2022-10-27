@@ -1,28 +1,11 @@
-## Eiser ecommerce
+<h1>Eiser ecommerce</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## User Panel
+Users can register for account and login to use the website.
+Like normal ecommerce sytem, users will be able to browse the products, search for specific item and they can look detail for each of the item. Add to cart function is also available to add the products to cart. After their shopping is finished can finally checkout to the order process. In the mean time, they can also remove items from the cart if they changed their mind or accidentailly put the the items to cart.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Admin Panel
+Admin panel mainly supposed to be able to manage the products, categories and reports. For this reasons , I added management screen for products. Admin will be able to add, update, delete the products from the admin panel. Same functionalites for the categories as well. Admin can also see the order and order detail listings which are like the reports from customer's shopping. Moreover, I added some reporting stuffs like weekly and monthly report.
 
 ### Premium Partners
 
